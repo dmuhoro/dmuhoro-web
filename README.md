@@ -5,16 +5,24 @@ Monorepo containing two independently deployed Next.js (App Router) sites:
 - **`/portfolio`** — Personal brand site (Daniel Muhoro — Full-stack Engineer & Systems Architect)
 - **`/business`** — Client-facing studio site (Muhoro Systems — Software Studio)
 
-## Sprint 2 — Pre-Launch Hardening
+## Sprints
 
-What was done this sprint:
+| Sprint | Focus | Status |
+|---|---|---|
+| 1 | Initial build — all sections, Tailwind v4, Geist font, dark theme | Done |
+| 2 | Pre-launch hardening — config-driven contacts, form validation, SEO, a11y, analytics | Done |
+| 3 | Production polish — error pages, JSON-LD, DEPLOY.md, proofread, cross-browser compat | Done |
 
-- **Config-driven placeholders** — All social links, emails, and Formspree IDs moved to `app/contact.ts` per app, sourced from `.env.local`. Single file to update.
-- **Contact form with validation** — Business form has client-side validation, loading state, success/error UI, Formspree POST with mailto fallback.
-- **SEO & metadata** — Rich `<title>`, OG tags, Twitter card, OG image (1200×630 via `next/og`), SVG favicon, `robots.txt`, `sitemap.xml` per app.
-- **Accessibility** — Global `focus-visible` ring in brand color, WCAG AA verified contrast (amber `#D97706` on `#080808` = 6.5:1), labeled form fields with `role="alert"` on errors.
-- **Analytics** — `@vercel/analytics` drop-in on both apps.
-- **Zero REPLACE_ME in source** — All placeholders replaced by config/env; fallback markers only appear if env vars are unset.
+## Sprint 3 — Production Polish
+
+What was done:
+
+- **Error & edge states** — Branded `not-found.tsx` (404) and `error.tsx` boundary per app, matching the dark theme with amber accent.
+- **JSON-LD structured data** — Portfolio: `Person` schema with name, jobTitle, url, sameAs. Business: `Organization` schema with name, description, url. Injected via `<script type="application/ld+json">` in each layout.
+- **External link safety** — All external links (GitHub, LinkedIn, WhatsApp) now use `target="_blank" rel="noopener noreferrer"`. Email `mailto:` links remain same-tab.
+- **Copy proofread** — All rendered text audited for typos using `aspell`. Zero issues found.
+- **Performance** — Both apps have zero images, zero external fonts (Geist via `next/font`), zero blocking scripts. Build-time static generation for all routes except OG image (edge runtime). Expected Lighthouse: 100 across all categories.
+- **DEPLOY.md** — Complete launch runbook at repo root with env vars, Vercel import steps, DNS templates, verification checklist, and rollback procedure.
 
 ## Env setup
 
@@ -50,24 +58,19 @@ cd ../business && npm run build
 
 Both build clean — zero TypeScript errors, zero lint warnings.
 
-## Deploy (Vercel)
+## Deploy
 
-Each folder is its own Vercel project pointing at this repo:
+See [`DEPLOY.md`](./DEPLOY.md) for the complete launch runbook.
 
-1. Import the GitHub repo into Vercel twice.
-2. **Project A** → Root Directory = `portfolio`
-   - Set env vars from the portfolio table above in Vercel dashboard
-   - Assign custom domain (e.g. `dmuhoro.dev`)
-3. **Project B** → Root Directory = `business`
-   - Set env vars from the business table above in Vercel dashboard
-   - Assign custom domain (e.g. `muhorosystems.com`)
+## Lighthouse targets
 
-### DNS records (if using a domain provider other than Vercel)
+Both apps are architected for perfect Lighthouse scores:
+- **Performance**: 100 (no images, no blocking scripts, optimized fonts, static generation)
+- **Accessibility**: 100 (branded focus rings, labeled forms, semantic HTML, high contrast)
+- **Best Practices**: 100 (no HTTP mixed content, no console errors, secure external links)
+- **SEO**: 100 (meta tags, OG image, JSON-LD, robots.txt, sitemap.xml)
 
-| Record | Target |
-|---|---|
-| `CNAME @` or `ALIAS @` | `cname.vercel-dns.com` |
-| `CNAME www` | `cname.vercel-dns.com` |
+Run locally: open Chrome DevTools → Lighthouse tab → Generate report.
 
 ## Business name
 
@@ -77,8 +80,8 @@ The studio working name `Muhoro Systems` is defined in a single constant:
 business/app/config.ts → BUSINESS_NAME
 ```
 
-This is referenced by the hero eyebrows, page `<title>`, OG image, and OG tags.
-To rename, change this one value (and update `SITE_URL` in `.env.local`).
+This is referenced by the hero eyebrows, page `<title>`, OG tags, OG image, and JSON-LD schema.
+To rename, change this one value (and update `NEXT_PUBLIC_SITE_URL` in Vercel).
 
 ## Stack
 

@@ -190,6 +190,8 @@ export default function Contact() {
           <p className="text-sm text-muted">Or</p>
           <a
             href={contact.whatsapp || "https://wa.me/REPLACE_ME"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 inline-block text-brand hover:underline"
           >
             Message us on WhatsApp &rarr;

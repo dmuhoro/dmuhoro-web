@@ -1,10 +1,10 @@
 import { contact } from "@/app/contact";
 
 const links = [
-  { label: "Email Me", href: `mailto:${contact.email}`, primary: true },
-  { label: "WhatsApp", href: contact.whatsapp || "https://wa.me/REPLACE_ME" },
-  { label: "GitHub", href: contact.github },
-  { label: "LinkedIn", href: contact.linkedin || "https://linkedin.com/in/REPLACE_ME" },
+  { label: "Email Me", href: `mailto:${contact.email}`, primary: true, external: false },
+  { label: "WhatsApp", href: contact.whatsapp || "https://wa.me/REPLACE_ME", external: true },
+  { label: "GitHub", href: contact.github, external: true },
+  { label: "LinkedIn", href: contact.linkedin || "https://linkedin.com/in/REPLACE_ME", external: true },
 ];
 
 export default function Contact() {
@@ -24,6 +24,8 @@ export default function Contact() {
             <a
               key={link.label}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
               className={
                 link.primary
                   ? "rounded-lg bg-brand px-6 py-3 font-semibold text-black transition-colors hover:bg-brand-hover"

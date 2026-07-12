@@ -14,6 +14,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: BUSINESS_NAME,
+  description:
+    "Production software for African businesses that can't afford to get it wrong. We design and build scheduling, payments, records, and customer engagement systems.",
+  url: SITE_URL,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: `${BUSINESS_NAME} — Software Studio`,
@@ -48,6 +57,10 @@ export default function RootLayout({
     >
       <body>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Analytics />
       </body>
     </html>

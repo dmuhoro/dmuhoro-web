@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SITE_URL } from "@/app/config";
+import { contact } from "@/app/contact";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,6 +14,15 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Daniel Muhoro",
+  jobTitle: "Full-stack Engineer & Systems Architect",
+  url: SITE_URL,
+  sameAs: [contact.github, contact.linkedin].filter(Boolean),
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -48,6 +58,10 @@ export default function RootLayout({
     >
       <body>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Analytics />
       </body>
     </html>
