@@ -1,3 +1,12 @@
+import { contact } from "@/app/contact";
+
+const links = [
+  { label: "Email Me", href: `mailto:${contact.email}`, primary: true },
+  { label: "WhatsApp", href: contact.whatsapp || "https://wa.me/REPLACE_ME" },
+  { label: "GitHub", href: contact.github },
+  { label: "LinkedIn", href: contact.linkedin || "https://linkedin.com/in/REPLACE_ME" },
+];
+
 export default function Contact() {
   return (
     <section id="contact" className="bg-surface px-6 py-24">
@@ -11,30 +20,19 @@ export default function Contact() {
           system end to end, let&apos;s talk.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="mailto:REPLACE_ME"
-            className="rounded-lg bg-brand px-6 py-3 font-semibold text-black transition-colors hover:bg-brand-hover"
-          >
-            Email Me
-          </a>
-          <a
-            href="https://wa.me/REPLACE_ME"
-            className="rounded-lg border border-border px-6 py-3 font-semibold text-foreground transition-colors hover:bg-surface-hover"
-          >
-            WhatsApp
-          </a>
-          <a
-            href="https://github.com/dmuhoro"
-            className="rounded-lg border border-border px-6 py-3 font-semibold text-foreground transition-colors hover:bg-surface-hover"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/REPLACE_ME"
-            className="rounded-lg border border-border px-6 py-3 font-semibold text-foreground transition-colors hover:bg-surface-hover"
-          >
-            LinkedIn
-          </a>
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={
+                link.primary
+                  ? "rounded-lg bg-brand px-6 py-3 font-semibold text-black transition-colors hover:bg-brand-hover"
+                  : "rounded-lg border border-border px-6 py-3 font-semibold text-foreground transition-colors hover:bg-surface-hover"
+              }
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>
