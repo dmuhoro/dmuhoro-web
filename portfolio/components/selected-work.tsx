@@ -14,7 +14,7 @@ const projects = [
       "Multi-tenant clinic operations platform: scheduling, WhatsApp patient engagement, encrypted records, billing.",
     stack: ["TanStack Start", "Vercel Edge", "PostgreSQL"],
     status: "Pre-launch, piloting",
-    repoUrl: "https://github.com/dmuhoro/kays-wellness-centre",
+    liveUrl: "https://kays-wellness-centre.vercel.app/",
   },
   {
     name: "Daftari",
