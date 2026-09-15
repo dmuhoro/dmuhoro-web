@@ -137,3 +137,40 @@ To rename:
 3. Deploy
 
 That's it — the name flows into the page `<title>`, OG tags, OG image, hero eyebrow, and JSON-LD structured data from those two sources.
+
+---
+
+## 8. Troubleshooting — build fails with "Couldn't find any `pages` or `app` directory"
+
+**Symptom:** a Vercel build fails immediately with:
+
+```
+Build error occurred
+Error: > Couldn't find any `pages` or `app` directory. Please create one under the project root
+```
+
+**Cause:** the Vercel project's **Root Directory** is set to the repo root (`.`) instead of the
+app directory. Both apps live in subdirectories of this monorepo, so a root-level `next build`
+finds no `app/`.
+
+**Fix (per project):**
+
+```bash
+vercel project update dmuhoro-portfolio --root-directory portfolio --yes
+vercel project update business --root-directory business --yes
+```
+
+Verify:
+
+```bash
+vercel project inspect dmuhoro-portfolio --json | grep rootDirectory   # → "portfolio"
+vercel project inspect business --json | grep rootDirectory            # → "business"
+```
+
+Then redeploy the current commit from git (or simply push — Vercel auto-deploys):
+
+```bash
+vercel ls <project>                       # confirm latest deployment turns Ready
+```
+
+Re-run the verification checklist in section 5 against the live site.
