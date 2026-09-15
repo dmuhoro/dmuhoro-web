@@ -14,6 +14,7 @@ Monorepo containing two independently deployed Next.js (App Router) sites:
 | 3 | Production polish — error pages, JSON-LD, DEPLOY.md, proofread, cross-browser compat | Done |
 | 4 | Make Selected Work clickable — per-card View Live / View Code CTAs with verified URLs | Done |
 | 5 | Update Selected Work links — Kay's Wellness live URL, AfroPay link removed | Done |
+| 6 | Vercel build remediation — Root Directory fix for portfolio & business | Done |
 
 Full sprint records live in [`sprints/`](./sprints/). Changelog is in [`CHANGELOG.md`](./CHANGELOG.md).
 
