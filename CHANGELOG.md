@@ -5,6 +5,16 @@ All notable changes to this project are tracked here. Format follows
 
 ## [Unreleased]
 
+### Sprint 6 — Vercel build remediation (Fixed)
+
+- **Root cause** — the `dmuhoro-portfolio` Vercel project was building from the repo root (`.`) instead of `portfolio/`, so every git push failed with `Couldn't find any pages or app directory`. The `business` project had the identical misconfiguration (same failed build on the same push).
+- **Fixed** — set the project Root Directory to the app directory for both projects:
+  - `dmuhoro-portfolio` → `portfolio`
+  - `business` → `business`
+  - Business app code untouched; this is a Vercel project setting, aligned with what `DEPLOY.md` already prescribed.
+- **Verified** — production builds of commit `ab28d7f` for both projects turn `Ready`; the live portfolio serves the Sprint 4/5 cards (verified `View Live`/`View Code` anchors, no stale or blank hrefs).
+- **Runbook** — `DEPLOY.md` gained a troubleshooting section (section 8) covering the symptom, cause, CLI fix, and verification.
+
 ### Sprint 5 — Update Selected Work Links
 
 - **Kay's Wellness Centre** — added verified `liveUrl` (`https://kays-wellness-centre.vercel.app/`); card now renders the primary **"View Live →"** button (replaces the Sprint 4 repo fallback).
