@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { SITE_URL } from "@/app/config";
 
 export const runtime = "edge";
 export const alt =
