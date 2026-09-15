@@ -12,6 +12,10 @@ Monorepo containing two independently deployed Next.js (App Router) sites:
 | 1 | Initial build — all sections, Tailwind v4, Geist font, dark theme | Done |
 | 2 | Pre-launch hardening — config-driven contacts, form validation, SEO, a11y, analytics | Done |
 | 3 | Production polish — error pages, JSON-LD, DEPLOY.md, proofread, cross-browser compat | Done |
+| 4 | Make Selected Work clickable — per-card View Live / View Code CTAs with verified URLs | Done |
+| 5 | Update Selected Work links — Kay's Wellness live URL, AfroPay link removed | Done |
+
+Full sprint records live in [`sprints/`](./sprints/). Changelog is in [`CHANGELOG.md`](./CHANGELOG.md).
 
 ## Sprint 3 — Production Polish
 
@@ -23,6 +27,22 @@ What was done:
 - **Copy proofread** — All rendered text audited for typos using `aspell`. Zero issues found.
 - **Performance** — Both apps have zero images, zero external fonts (Geist via `next/font`), zero blocking scripts. Build-time static generation for all routes except OG image (edge runtime). Expected Lighthouse: 100 across all categories.
 - **DEPLOY.md** — Complete launch runbook at repo root with env vars, Vercel import steps, DNS templates, verification checklist, and rollback procedure.
+
+## Sprint 4 — Make Selected Work Clickable
+
+What was done:
+
+- **Per-card CTAs** — Every "Selected Work" project card now renders a "View Live →" (primary amber) or "View Code →" (secondary outlined) button when a URL exists. Cards without a URL render no button at all.
+- **Verified links only** — Daftari live URL; EasyTutor, VoteChain, and Kay's Wellness repo URLs. No invented or guessed URLs.
+- **Accessible & consistent** — external links open in a new tab with `rel="noopener noreferrer"`; hover/focus states match the site's amber accent; buttons anchor to card bottoms so the grid stays aligned.
+
+## Sprint 5 — Update Selected Work Links
+
+What was done:
+
+- **Kay's Wellness Centre** — added verified live URL (`https://kays-wellness-centre.vercel.app/`); card now shows the primary "View Live →" button.
+- **AfroPay Network** — live link removed; both `liveUrl` and `repoUrl` set to `undefined`. Card renders description + stack tags only, no button. No stale `afropay-network-xi.vercel.app` reference remains anywhere in the repo.
+- **Untouched** — Daftari, EasyTutor, VoteChain, FundiOS kept as-is.
 
 ## Env setup
 
