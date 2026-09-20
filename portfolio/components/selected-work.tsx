@@ -39,14 +39,15 @@ const projects = [
     status: "In development",
     repoUrl: "https://github.com/dmuhoro/easytutor",
   },
-  {
-    name: "VoteChain",
-    description:
-      "Blockchain-based online voting MVP built on Ethereum, designed for production on Polygon.",
-    stack: ["Solidity", "Ethereum/Polygon"],
-    status: "Open source",
-    repoUrl: "https://github.com/dmuhoro/Votechain",
-  },
+{
+        name: "VoteChain",
+        description:
+          "Blockchain-based online voting MVP built on Ethereum, designed for production on Polygon.",
+        stack: ["Solidity", "Ethereum/Polygon"],
+        status: "Open source",
+        liveUrl: "https://votechain-ivory.vercel.app/",
+        repoUrl: "https://github.com/dmuhoro/Votechain",
+      }
 ];
 
 export default function SelectedWork() {
