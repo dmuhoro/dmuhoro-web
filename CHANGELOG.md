@@ -5,6 +5,10 @@ All notable changes to this project are tracked here. Format follows
 
 ## [Unreleased]
 
+### Sprint 7 — Repoint Daftari live link
+
+- **Daftari `liveUrl`** — updated `portfolio/components/selected-work.tsx` from the stale `https://daftari-olive.vercel.app` to the current deployment `https://daftari-amber.vercel.app/`. Link keeps `target="_blank" rel="noopener noreferrer"`.
+
 ### Sprint 6 — Vercel build remediation (Fixed)
 
 - **Root cause** — the `dmuhoro-portfolio` Vercel project was building from the repo root (`.`) instead of `portfolio/`, so every git push failed with `Couldn't find any pages or app directory`. The `business` project had the identical misconfiguration (same failed build on the same push).

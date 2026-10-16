@@ -22,7 +22,7 @@ const projects = [
       "Offline-first business ledger PWA for Kenyan informal vendors, with M-Pesa SMS parsing and a bilingual (Kiswahili/English) interface.",
     stack: ["React", "Supabase"],
     status: "Live, piloting with a Nairobi vendor",
-    liveUrl: "https://daftari-olive.vercel.app",
+    liveUrl: "https://daftari-amber.vercel.app/",
   },
   {
     name: "FundiOS",
