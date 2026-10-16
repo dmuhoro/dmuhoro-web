@@ -8,7 +8,7 @@ export default function About() {
             I&apos;m a solo founder and engineer based in Nairobi, currently
             studying Automotive Engineering while building AI-native software
             infrastructure for African SMEs and students. I work across the full
-            stack — architecture, security, and product — and I&apos;m the sole
+            stack — architecture, security, and product — and I&apos;m a solo
             engineer behind every system listed below.
           </p>
           <p>
