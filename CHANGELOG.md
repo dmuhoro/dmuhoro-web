@@ -8,6 +8,8 @@ All notable changes to this project are tracked here. Format follows
 ### Sprint 7 — Repoint Daftari live link
 
 - **Daftari `liveUrl`** — updated `portfolio/components/selected-work.tsx` from the stale `https://daftari-olive.vercel.app` to the current deployment `https://daftari-amber.vercel.app/`. Link keeps `target="_blank" rel="noopener noreferrer"`.
+- **README** — refreshed the root `README.md` with an overview, repository structure, live-site links, getting-started, and deployment notes (Vercel projects and their Root Directories), preserving the existing env/sprint/stack reference material.
+- **GitHub repo metadata** — set the repository description, added topics, and corrected the homepage URL to `https://dmuhoro-portfolio.vercel.app` (was the stale `dmuhoro-web-sooty` alias).
 
 ### Sprint 6 — Vercel build remediation (Fixed)
 

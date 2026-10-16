@@ -1,9 +1,42 @@
 # dmuhoro-web
 
-Monorepo containing two independently deployed Next.js (App Router) sites:
+Monorepo containing two independently deployed **Next.js (App Router)** sites:
 
-- **`/portfolio`** — Personal brand site (Daniel Muhoro — Full-stack Engineer & Systems Architect)
-- **`/business`** — Client-facing studio site (Muhoro Systems — Software Studio)
+- **`/portfolio`** — Personal brand site for **Daniel Muhoro**, Full-stack Engineer & Systems Architect — [dmuhoro-portfolio.vercel.app](https://dmuhoro-portfolio.vercel.app)
+- **`/business`** — Client-facing studio site for **Muhoro Systems** — [business-beryl-phi.vercel.app](https://business-beryl-phi.vercel.app)
+
+Both apps are static-first, dependency-light, and deploy to Vercel from their own subdirectory.
+
+## Repository structure
+
+```
+dmuhoro-web/
+├── portfolio/        # Next.js app — personal portfolio (dmuhoro-portfolio project)
+├── business/         # Next.js app — Muhoro Systems studio (business project)
+├── sprints/          # Per-sprint engineering records
+├── DEPLOY.md         # Launch runbook (env vars, Vercel import, DNS, verification, rollback)
+├── CHANGELOG.md      # Keep-a-Changelog log of notable changes
+└── README.md
+```
+
+## Getting started
+
+```bash
+git clone https://github.com/dmuhoro/dmuhoro-web.git
+cd dmuhoro-web
+
+# install each app independently
+npm install --prefix portfolio
+npm install --prefix business
+
+# local env
+cp portfolio/.env.example portfolio/.env.local
+cp business/.env.example business/.env.local
+
+# run
+npm --prefix portfolio run dev    # http://localhost:3000
+npm --prefix business  run dev    # http://localhost:3001
+```
 
 ## Sprints
 
@@ -15,6 +48,7 @@ Monorepo containing two independently deployed Next.js (App Router) sites:
 | 4 | Make Selected Work clickable — per-card View Live / View Code CTAs with verified URLs | Done |
 | 5 | Update Selected Work links — Kay's Wellness live URL, AfroPay link removed | Done |
 | 6 | Vercel build remediation — Root Directory fix for portfolio & business | Done |
+| 7 | Repoint Daftari live link to the current deployment (`daftari-amber`) | Done |
 
 Full sprint records live in [`sprints/`](./sprints/). Changelog is in [`CHANGELOG.md`](./CHANGELOG.md).
 
@@ -70,11 +104,11 @@ cp business/.env.example business/.env.local
 | `NEXT_PUBLIC_WHATSAPP` | Yes | WhatsApp Business link |
 | `NEXT_PUBLIC_FORMSPREE_ID` | No | Formspree form ID (if omitted, form falls back to mailto) |
 
-## Build
+## Build & lint
 
 ```bash
-cd portfolio && npm run build
-cd ../business && npm run build
+npm --prefix portfolio run lint && npm --prefix portfolio run build
+npm --prefix business  run lint && npm --prefix business  run build
 ```
 
 Both build clean — zero TypeScript errors, zero lint warnings.
@@ -82,6 +116,22 @@ Both build clean — zero TypeScript errors, zero lint warnings.
 ## Deploy
 
 See [`DEPLOY.md`](./DEPLOY.md) for the complete launch runbook.
+
+Two Vercel projects serve this monorepo, both connected to GitHub and building from
+their app subdirectory:
+
+| Vercel project | Root directory | Production URL |
+|---|---|---|
+| `dmuhoro-portfolio` | `portfolio` | https://dmuhoro-portfolio.vercel.app |
+| `business` | `business` | https://business-beryl-phi.vercel.app |
+
+Pushing to `master` triggers a production deployment of each project. A root-level
+`next build` fails (`Couldn't find any pages or app directory`) if a project's Root
+Directory is left at `.` — see `DEPLOY.md` section 8.
+
+> Note: an older Vercel project named `dmuhoro-web` (alias
+> `dmuhoro-web-sooty.vercel.app`) is a leftover from before the monorepo was split; it
+> is **not** used by either live site. Use the two projects above.
 
 ## Lighthouse targets
 
