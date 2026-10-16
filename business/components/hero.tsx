@@ -16,12 +16,20 @@ export default function Hero() {
           payments, records, customer engagement — from first line of code to
           production deploy.
         </p>
-        <a
-          href="#contact"
-          className="inline-flex items-center rounded-lg bg-brand px-6 py-3 font-semibold text-black transition-colors hover:bg-brand-hover"
-        >
-          Start a Project
-        </a>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="#work"
+            className="inline-flex items-center rounded-lg bg-brand px-6 py-3 font-semibold text-black transition-colors hover:bg-brand-hover"
+          >
+            View Work
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-lg border border-border px-6 py-3 font-semibold text-foreground transition-colors hover:bg-surface"
+          >
+            Start a Project
+          </a>
+        </div>
       </div>
     </section>
   );

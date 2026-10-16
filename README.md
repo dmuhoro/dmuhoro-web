@@ -49,6 +49,7 @@ npm --prefix business  run dev    # http://localhost:3001
 | 5 | Update Selected Work links — Kay's Wellness live URL, AfroPay link removed | Done |
 | 6 | Vercel build remediation — Root Directory fix for portfolio & business | Done |
 | 7 | Repoint Daftari live link to the current deployment (`daftari-amber`) | Done |
+| 8 | Feature parity — portfolio contact form + Process; business Selected Work; cleanup | Done |
 
 Full sprint records live in [`sprints/`](./sprints/). Changelog is in [`CHANGELOG.md`](./CHANGELOG.md).
 
@@ -94,6 +95,7 @@ cp business/.env.example business/.env.local
 | `NEXT_PUBLIC_EMAIL` | Yes | Contact email |
 | `NEXT_PUBLIC_WHATSAPP` | Yes | WhatsApp link (e.g. `https://wa.me/2547XXXXXXXX`) |
 | `NEXT_PUBLIC_LINKEDIN` | Yes | LinkedIn profile URL |
+| `NEXT_PUBLIC_FORMSPREE_ID` | No | Formspree form ID (if omitted, the contact form falls back to mailto) |
 
 ### Business env vars
 

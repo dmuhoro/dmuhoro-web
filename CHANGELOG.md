@@ -5,6 +5,14 @@ All notable changes to this project are tracked here. Format follows
 
 ## [Unreleased]
 
+### Sprint 8 — Feature parity across both sites
+
+- **Portfolio — contact form** — the contact section now includes a validated form (name, email, optional company, message) that posts to Formspree when `NEXT_PUBLIC_FORMSPREE_ID` is set and otherwise falls back to a prefilled `mailto:`. The existing Email/WhatsApp/GitHub/LinkedIn links are retained beneath the form.
+- **Portfolio — Process section** — added a four-step "Process" section (Discovery & Spec → Architecture → Build in Sprints → Security Review & Deploy), matching the business site.
+- **Business — Selected Work** — added a "Selected Work" section showcasing real, shipped/piloting projects (Kay's Wellness pilot, Daftari, FundiOS, AfroPay Network) with verified live links, plus a "View Work" hero CTA.
+- **Lint parity** — cleared two pre-existing `business` warnings (`error.tsx`, `opengraph-image.tsx`); both apps now lint with zero warnings.
+- **Cleanup** — removed ten unused create-next-app SVGs (five per app) and refreshed the boilerplate app-level READMEs.
+
 ### Sprint 7 — Repoint Daftari live link
 
 - **Daftari `liveUrl`** — updated `portfolio/components/selected-work.tsx` from the stale `https://daftari-olive.vercel.app` to the current deployment `https://daftari-amber.vercel.app/`. Link keeps `target="_blank" rel="noopener noreferrer"`.

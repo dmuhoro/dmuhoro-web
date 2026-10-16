@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { BUSINESS_NAME, SITE_URL } from "@/app/config";
+import { BUSINESS_NAME } from "@/app/config";
 
 export const runtime = "edge";
 export const alt = `${BUSINESS_NAME} — Software Studio`;
