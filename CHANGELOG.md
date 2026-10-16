@@ -5,6 +5,10 @@ All notable changes to this project are tracked here. Format follows
 
 ## [Unreleased]
 
+### Sprint 9 — Single short URL for the business site
+
+- **Business — canonical domain** — reduced the `business` Vercel project to one domain, `https://dmuhoro-business.vercel.app`; the extra auto-assigned `business-beryl-phi.vercel.app` project domain was removed. The project's Latest Production URL, the README deploy table, and the live site now all reference a single short URL. Portfolio was already single-domain (`dmuhoro-portfolio.vercel.app`), so it was left unchanged.
+
 ### Sprint 8 — Feature parity across both sites
 
 - **Portfolio — contact form** — the contact section now includes a validated form (name, email, optional company, message) that posts to Formspree when `NEXT_PUBLIC_FORMSPREE_ID` is set and otherwise falls back to a prefilled `mailto:`. The existing Email/WhatsApp/GitHub/LinkedIn links are retained beneath the form.
