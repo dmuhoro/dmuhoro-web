@@ -3,7 +3,7 @@
 Monorepo containing two independently deployed **Next.js (App Router)** sites:
 
 - **`/portfolio`** — Personal brand site for **Daniel Muhoro**, Full-stack Engineer & Systems Architect — [dmuhoro-portfolio.vercel.app](https://dmuhoro-portfolio.vercel.app)
-- **`/business`** — Client-facing studio site for **Muhoro Systems** — [business-beryl-phi.vercel.app](https://business-beryl-phi.vercel.app)
+- **`/business`** — Client-facing studio site for **Muhoro Systems** — [dmuhoro-business.vercel.app](https://dmuhoro-business.vercel.app)
 
 Both apps are static-first, dependency-light, and deploy to Vercel from their own subdirectory.
 
@@ -123,7 +123,7 @@ their app subdirectory:
 | Vercel project | Root directory | Production URL |
 |---|---|---|
 | `dmuhoro-portfolio` | `portfolio` | https://dmuhoro-portfolio.vercel.app |
-| `business` | `business` | https://business-beryl-phi.vercel.app |
+| `business` | `business` | https://dmuhoro-business.vercel.app |
 
 Pushing to `master` triggers a production deployment of each project. A root-level
 `next build` fails (`Couldn't find any pages or app directory`) if a project's Root
