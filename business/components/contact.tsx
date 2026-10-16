@@ -186,17 +186,19 @@ export default function Contact() {
           </form>
         )}
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted">Or</p>
-          <a
-            href={contact.whatsapp || "https://wa.me/REPLACE_ME"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-block text-brand hover:underline"
-          >
-            Message us on WhatsApp &rarr;
-          </a>
-        </div>
+        {contact.whatsapp && (
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted">Or</p>
+            <a
+              href={contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-brand hover:underline"
+            >
+              Message us on WhatsApp &rarr;
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

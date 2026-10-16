@@ -11,6 +11,7 @@ All notable changes to this project are tracked here. Format follows
 - **Portfolio — Process section** — added a four-step "Process" section (Discovery & Spec → Architecture → Build in Sprints → Security Review & Deploy), matching the business site.
 - **Business — Selected Work** — added a "Selected Work" section showcasing real, shipped/piloting projects (Kay's Wellness pilot, Daftari, FundiOS, AfroPay Network) with verified live links, plus a "View Work" hero CTA.
 - **Lint parity** — cleared two pre-existing `business` warnings (`error.tsx`, `opengraph-image.tsx`); both apps now lint with zero warnings.
+- **Placeholder link fix** — the business WhatsApp link no longer falls back to `https://wa.me/REPLACE_ME`; contact defaults (`NEXT_PUBLIC_EMAIL`, `NEXT_PUBLIC_WHATSAPP`) and the `.env.example` now carry real values, and both contact sections render links only when configured (fail closed).
 - **Cleanup** — removed ten unused create-next-app SVGs (five per app) and refreshed the boilerplate app-level READMEs.
 
 ### Sprint 7 — Repoint Daftari live link

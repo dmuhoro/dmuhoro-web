@@ -14,10 +14,10 @@ type Status = "idle" | "sending" | "success" | "error";
 
 const links = [
   { label: "Email Me", href: `mailto:${contact.email}`, primary: true, external: false },
-  { label: "WhatsApp", href: contact.whatsapp || "https://wa.me/REPLACE_ME", external: true },
+  { label: "WhatsApp", href: contact.whatsapp, external: true },
   { label: "GitHub", href: contact.github, external: true },
-  { label: "LinkedIn", href: contact.linkedin || "https://linkedin.com/in/REPLACE_ME", external: true },
-];
+  { label: "LinkedIn", href: contact.linkedin, external: true },
+].filter((link) => link.href);
 
 export default function Contact() {
   const [form, setForm] = useState<FormFields>({
